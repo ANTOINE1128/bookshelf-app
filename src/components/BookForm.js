@@ -1,4 +1,3 @@
-// src/components/BookForm.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../booksSlice';
