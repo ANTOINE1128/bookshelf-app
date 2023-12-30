@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../booksSlice';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
 
 const BookForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('');
 
   const handleSubmit = () => {
-    // Generate a unique ID (you can use a library like uuid)
     const id = Math.random().toString(36).substr(2, 9);
-
     dispatch(addBook({ id, title, author, category }));
+    
     setTitle('');
     setAuthor('');
     setCategory('');
-  };
 
+    // Redirect to the home page after adding a book
+    navigate('/');
+  };
   return (
     <div>
       <h2>Add New Book</h2>

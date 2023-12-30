@@ -1,15 +1,21 @@
-
+// src/App.js
 import React from 'react';
-import BookList from './components/BookList'; 
-import BookForm from './components/BookForm';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import Routes
+import NavBar from './components/NavBar';
+import HomePage from './pages/HomePage';
+import AddBookPage from './pages/AddBookPage';
 
 const App = () => {
   return (
-    <div>
-      <h1>Bookshelf App</h1>
-      <BookList />
-      <BookForm />
-    </div>
+    <Router>
+      <div>
+        <NavBar />
+        <Routes> {/* Replace Switch with Routes */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/add" element={<AddBookPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
