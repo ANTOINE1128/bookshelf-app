@@ -10,7 +10,7 @@ const BookDetailsPage = () => {
     if(!book) {
         return <div> Book Not Found</div>
     }
-    const hanndleDelete = () => {
+    const handleDelete = () => {
         dispatch(removeBook(id));
     };
 
@@ -22,10 +22,10 @@ const BookDetailsPage = () => {
             <p>Catgorey: {book.catgorey} </p>
             <p>ID: {book.id} </p>
             <div>
-                <Link to={`/edit/${id}`}>Edit Book</Link>
-                <button onClick={handleDelete}>Delete Book</button>
+            <Link to={`/edit/${id}`}>Edit Book</Link>
+            <button onClick={handleDelete}>Delete Book</button>
                 </div>
-                <link to ="/"> Back to Home</link>
+                {/* <link to ="/"> Back to Home</link> */}
         </div>
     );
 };
