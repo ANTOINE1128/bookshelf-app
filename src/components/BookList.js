@@ -1,15 +1,9 @@
-// src/components/BookList.js
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeBook } from '../booksSlice';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const BookList = () => {
   const books = useSelector((state) => state.books);
-  const dispatch = useDispatch();
-
-  const handleRemove = (id) => {
-    dispatch(removeBook(id));
-  };
 
   return (
     <div>
@@ -17,8 +11,7 @@ const BookList = () => {
       <ul>
         {books.map((book) => (
           <li key={book.id}>
-            {book.title} by {book.author} (Category: {book.category})
-            <button onClick={() => handleRemove(book.id)}>Remove</button>
+            <Link to={`/book/${book.id}`}>{book.title}</Link>
           </li>
         ))}
       </ul>
